@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+    <title>旋转倒立摆 · 监视与调试</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot" id="link-dot"></span>
+        <b>旋转倒立摆</b>
+        <span class="sub" id="page-sub">实时监测</span>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="monitor">实时监测</button>
+        <button class="tab" data-tab="io">串口读写</button>
+      </nav>
+
+      <div class="controls">
+        <label class="field">
+          <span>串口</span>
+          <select id="port-select"></select>
+        </label>
+        <button id="btn-refresh" class="ghost" title="重新扫描串口">刷新</button>
+        <label class="field">
+          <span>波特率</span>
+          <input id="baud-input" type="number" value="115200" step="1" />
+        </label>
+        <button id="btn-connect" class="primary">连接</button>
+        <button id="btn-sim" class="ghost" title="无硬件时用内置模拟数据验证界面">模拟数据</button>
+      </div>
+
+      <div class="stats">
+        <span id="stat-rate">-- Hz</span>
+        <span id="stat-count">0 帧</span>
+        <span id="stat-rec" class="rec">未录制</span>
+        <span id="stat-clock">--:--:--</span>
+      </div>
+    </header>
+
+    <!-- ================= 第 1 页：实时监测 ================= -->
+    <main id="page-monitor" class="page">
+      <!-- 模型展示 -->
+      <section class="stage">
+        <canvas id="scene"></canvas>
+        <div class="stage-overlay">
+          <div class="mode-badge" id="mode-badge">未连接</div>
+          <div class="dims">
+            <div><i class="sw arm"></i>旋转臂 r = 0.156 m</div>
+            <div><i class="sw rod"></i>摆杆 L = 0.135 m（质心 0.0675 m）</div>
+            <div class="hint">鼠标拖拽旋转 · 滚轮缩放 · 右键平移</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 曲线图 -->
+      <section class="chart-wrap">
+        <div class="chart-cell"><canvas data-chart="theta"></canvas></div>
+        <div class="chart-cell"><canvas data-chart="thetadot"></canvas></div>
+        <div class="chart-cell"><canvas data-chart="phi"></canvas></div>
+        <div class="chart-cell"><canvas data-chart="phidot"></canvas></div>
+      </section>
+
+      <!-- 数据显示 -->
+      <aside class="panel">
+        <div class="readouts">
+          <div class="ro">
+            <label>摆角 θ</label>
+            <span id="ro-theta" class="v">--</span><em>°</em>
+          </div>
+          <div class="ro">
+            <label>摆角速度 θ̇</label>
+            <span id="ro-thetadot" class="v">--</span><em>°/s</em>
+          </div>
+          <div class="ro">
+            <label>臂角 φ（累计）</label>
+            <span id="ro-phi" class="v">--</span><em>°</em>
+          </div>
+          <div class="ro">
+            <label>臂角速度 φ̇</label>
+            <span id="ro-phidot" class="v">--</span><em>°/s</em>
+          </div>
+          <div class="ro small">
+            <label>ADC 原始码值</label>
+            <span id="ro-adc" class="v">--</span>
+          </div>
+          <div class="ro small">
+            <label>占空比 u</label>
+            <span id="ro-u" class="v">--</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 状态位 + 串口原始报文（原「本帧原始数据」位置） -->
+      <aside class="flags-panel">
+        <div class="block">
+          <div class="block-head"><span>状态位</span></div>
+          <div class="flags">
+            <span id="flag-bal" class="flag">平衡</span>
+            <span id="flag-swing" class="flag">起摆</span>
+            <span id="flag-fault" class="flag">故障</span>
+            <span id="flag-zero" class="flag">ZERO</span>
+          </div>
+        </div>
+        <div class="block raw-block">
+          <div class="block-head">
+            <span>串口原始报文（HEX）</span>
+            <button id="btn-clear-hex" class="mini">清空</button>
+          </div>
+          <pre id="hex-log" class="log raw-log"></pre>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ================= 第 2 页：串口读写 ================= -->
+    <main id="page-io" class="page" hidden>
+      <!-- 工具栏 -->
+      <div class="io-toolbar">
+        <span class="tb-state" id="io-conn-state">未连接</span>
+        <span class="tb-sep"></span>
+        <button id="btn-readall" class="primary">批量读取</button>
+        <button id="btn-batch-write" class="primary">批量写入</button>
+        <span class="tb-sep"></span>
+        <span class="hint">单行读/写见表格「操作」列；只读项不可写</span>
+        <span class="msg grow" id="io-msg"></span>
+      </div>
+
+      <!-- 页签 -->
+      <nav class="io-tabs">
+        <button class="iotab active" data-iotab="angle">角度 / 状态</button>
+        <button class="iotab" data-iotab="param">参数配置</button>
+      </nav>
+
+      <!-- Tab 1：角度 / 状态（只读） -->
+      <section class="iotab-panel" id="iotab-angle">
+        <table class="dtable">
+          <thead>
+            <tr><th style="width:22%">项目</th><th style="width:20%">数值</th><th style="width:12%">单位</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>摆角 θ</td><td id="at-theta" class="num">--</td><td>°</td><td>直立为 0，±180°</td></tr>
+            <tr><td>摆角速度 θ̇</td><td id="at-thetadot" class="num">--</td><td>°/s</td><td>低通后的角速度</td></tr>
+            <tr><td>臂角 φ</td><td id="at-phi" class="num">--</td><td>°</td><td>定点后为相对 0 点的角度</td></tr>
+            <tr><td>臂角速度 φ̇</td><td id="at-phidot" class="num">--</td><td>°/s</td><td>编码器差分</td></tr>
+            <tr><td>占空比 u</td><td id="at-u" class="num">--</td><td>—</td><td>±2500 为满量程</td></tr>
+            <tr><td>ADC 原始码值</td><td id="at-adc" class="num">--</td><td>—</td><td>本版 AA55 帧不含此字段</td></tr>
+            <tr><td>平衡 / 起摆</td><td id="at-bal" class="num">--</td><td>—</td><td>状态位 bit0 / bit1</td></tr>
+            <tr><td>故障 / ZERO</td><td id="at-fault" class="num">--</td><td>—</td><td>状态位 bit2 / bit3</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Tab 2：参数配置 -->
+      <section class="iotab-panel" id="iotab-param" hidden>
+        <table class="dtable param-table">
+          <thead>
+            <tr>
+              <th style="width:8%">编号</th>
+              <th style="width:20%">名称</th>
+              <th style="width:14%">当前值</th>
+              <th style="width:16%">写入值</th>
+              <th style="width:16%">范围</th>
+              <th style="width:14%">状态</th>
+              <th style="width:12%">操作</th>
+            </tr>
+          </thead>
+          <tbody id="param-body"></tbody>
+        </table>
+
+        <!-- 手动发送 / 快捷读（保留原有入口） -->
+        <div class="io-row manual">
+          <span class="hint">手动发送</span>
+          <input id="send-hex" class="grow" placeholder="HEX 字节，例如 A5 5A 01 10 77" />
+          <button id="btn-send" class="mini">发送</button>
+          <span class="tb-sep"></span>
+          <input id="q-idx" class="qin" placeholder="编号 10" />
+          <button id="btn-q-read" class="mini">读</button>
+          <input id="q-val" class="qin" placeholder="值 7000" />
+          <button id="btn-q-write" class="mini">写</button>
+        </div>
+      </section>
+
+      <!-- 底部：操作日志 + 录制文件 -->
+      <div class="io-foot">
+        <section class="block">
+          <div class="block-head">
+            <span>操作日志</span>
+            <button id="btn-clear-read" class="mini">清空</button>
+          </div>
+          <pre id="read-log" class="log small"></pre>
+        </section>
+        <section class="block">
+          <div class="block-head">
+            <span>录制文件</span>
+            <button id="btn-open-rec" class="mini">打开目录</button>
+            <button id="btn-clear-rec" class="mini danger">清除历史</button>
+          </div>
+          <ul id="rec-list" class="rec-list"></ul>
+        </section>
+      </div>
+
+      <!-- 数据说明（折叠） -->
+      <details class="doc-fold">
+        <summary>数据说明（帧格式）</summary>
+        <pre class="doc">
+示波帧（板子 → 上位机，100 Hz，14 B）
+  AA 55 | 状态 | 臂角 | 摆杆角 | 臂速 | 杆速 | 占空比 | XOR
+    状态  bit0 平衡 bit1 起摆 bit2 故障 bit3 ZERO
+    角度  0.01°，臂角 0~359.99；摆杆角 底部=0
+    速度  0.1°/s，有符号；占空比 ±2500
+
+读参数     A5 5A 01 编号 CRC              5 B
+写参数     A5 5A 02 编号 值(4B 小端) CRC   9 B
+全部读取   A5 5A 03 CRC                   4 B
+
+应答（固定 10 B）
+  A5 5A | 命令+0x80 | 结果 | 编号 | 值(4B 小端) | CRC
+    结果  00 成功 / 01 失败（不在参数页、超范围…）
+    CRC8  多项式 0x07，只覆盖 A5 5A 之后的字节
+
+参数编号（可写项与范围由板端决定，写超范围回 01）
+  0x01 CLK_FREQ        只读    0x04 SCOPE_DIV   可写  50 000 ~ 5 000 000
+  0x02 BAUD            只读    0x05 C_P_REV     只读
+  0x03 PWM_HZ          只读    0x10~0x13 LQR_C1~C4 可写  −8191 ~ 8191
+  0x14 TH_CATCH        可写    0 ~ 8191</pre>
+      </details>
+    </main>
+
+    <div class="statusline">
+      <span id="st-port">未连接</span>
+      <span id="st-recfile">录制未开始</span>
+      <span id="st-msg" class="msg"></span>
+    </div>
+
+    <script type="module" src="../../dist/renderer.bundle.js"></script>
+  </body>
+</html>

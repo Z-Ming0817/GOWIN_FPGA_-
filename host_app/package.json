@@ -1,0 +1,23 @@
+{
+  "name": "pendulum-monitor",
+  "productName": "InvertedPendulumMonitor",
+  "version": "0.1.0",
+  "description": "旋转倒立摆上位机：实时三维姿态 + 串口监视 + 曲线",
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/renderer/app.js --bundle --format=esm --target=chrome120 --outfile=dist/renderer.bundle.js",
+    "watch": "esbuild src/renderer/app.js --bundle --format=esm --target=chrome120 --outfile=dist/renderer.bundle.js --watch",
+    "start": "npm run build && electron .",
+    "pack": "npm run build && electron-packager . InvertedPendulumMonitor --platform=win32 --arch=x64 --out=release --overwrite --asar --ignore=\"^/release\" --ignore=\"^/recordings\" --ignore=\"^/docs\" --ignore=\"^/shot\" --ignore=\"^/dist/.*\\.map$\""
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-packager": "^17.1.2",
+    "esbuild": "^0.28.2",
+    "three": "^0.180.0"
+  }
+}
