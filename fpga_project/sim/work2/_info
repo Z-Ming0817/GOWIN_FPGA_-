@@ -1,0 +1,556 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/FPGA_project/total_project
+vads1120
+Z1 !s110 1793609875
+!i10b 1
+!s100 Rd0bUnM>U1<eDELTcL8Qz3
+IoK<Yoo_GoNY8:LSd[D5>C2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1793524312
+8E:\FPGA_project\total_project\src\ads1120.v
+FE:\FPGA_project\total_project\src\ads1120.v
+L0 31
+Z4 OL;L;10.7;67
+r1
+!s85 0
+31
+Z5 !s108 1793609874.000000
+!s107 E:\FPGA_project\total_project\src\ui_core.v|E:\FPGA_project\total_project\src\uart_tx_zzh.v|E:\FPGA_project\total_project\src\uart_rx.v|E:\FPGA_project\total_project\src\uart_frame.v|E:\FPGA_project\total_project\src\total_top.v|E:\FPGA_project\total_project\src\tb6612_driver.v|E:\FPGA_project\total_project\src\sys_reset.v|E:\FPGA_project\total_project\src\swing_ctrl.v|E:\FPGA_project\total_project\src\str_rom.v|E:\FPGA_project\total_project\src\state_observer.v|E:\FPGA_project\total_project\src\st7789_spi.v|E:\FPGA_project\total_project\src\ref_gen.v|E:\FPGA_project\total_project\src\pos_interp.v|E:\FPGA_project\total_project\src\param_rom.v|E:\FPGA_project\total_project\src\param_link.v|E:\FPGA_project\total_project\src\mon_conv.v|E:\FPGA_project\total_project\src\mode_fsm.v|E:\FPGA_project\total_project\src\menu_frame.v|E:\FPGA_project\total_project\src\lqr_controller.v|E:\FPGA_project\total_project\src\lcd_init.v|E:\FPGA_project\total_project\src\key_debounce.v|E:\FPGA_project\total_project\src\font_cn.v|E:\FPGA_project\total_project\src\font_ascii.v|E:\FPGA_project\total_project\src\encoder_decoder.v|E:\FPGA_project\total_project\src\arm_target.v|E:\FPGA_project\total_project\src\ads1120.v|
+Z6 !s90 -work|sim\work2|E:\FPGA_project\total_project\src\ads1120.v|E:\FPGA_project\total_project\src\arm_target.v|E:\FPGA_project\total_project\src\encoder_decoder.v|E:\FPGA_project\total_project\src\font_ascii.v|E:\FPGA_project\total_project\src\font_cn.v|E:\FPGA_project\total_project\src\key_debounce.v|E:\FPGA_project\total_project\src\lcd_init.v|E:\FPGA_project\total_project\src\lqr_controller.v|E:\FPGA_project\total_project\src\menu_frame.v|E:\FPGA_project\total_project\src\mode_fsm.v|E:\FPGA_project\total_project\src\mon_conv.v|E:\FPGA_project\total_project\src\param_link.v|E:\FPGA_project\total_project\src\param_rom.v|E:\FPGA_project\total_project\src\pos_interp.v|E:\FPGA_project\total_project\src\ref_gen.v|E:\FPGA_project\total_project\src\st7789_spi.v|E:\FPGA_project\total_project\src\state_observer.v|E:\FPGA_project\total_project\src\str_rom.v|E:\FPGA_project\total_project\src\swing_ctrl.v|E:\FPGA_project\total_project\src\sys_reset.v|E:\FPGA_project\total_project\src\tb6612_driver.v|E:\FPGA_project\total_project\src\total_top.v|E:\FPGA_project\total_project\src\uart_frame.v|E:\FPGA_project\total_project\src\uart_rx.v|E:\FPGA_project\total_project\src\uart_tx_zzh.v|E:\FPGA_project\total_project\src\ui_core.v|
+!i113 0
+Z7 o-work {sim\work2} -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 tCvgOpt 0
+varm_target
+R1
+!i10b 1
+!s100 kcd<J`FiNj16kQR0jkbzS2
+I7zTIO;5<Y;9D01l5<m?l91
+R2
+R0
+Z9 w1793545710
+8E:\FPGA_project\total_project\src\arm_target.v
+FE:\FPGA_project\total_project\src\arm_target.v
+L0 41
+R4
+r1
+!s85 0
+31
+R5
+Z10 !s107 E:\FPGA_project\total_project\src\ui_core.v|E:\FPGA_project\total_project\src\uart_tx_zzh.v|E:\FPGA_project\total_project\src\uart_rx.v|E:\FPGA_project\total_project\src\uart_frame.v|E:\FPGA_project\total_project\src\total_top.v|E:\FPGA_project\total_project\src\tb6612_driver.v|E:\FPGA_project\total_project\src\sys_reset.v|E:\FPGA_project\total_project\src\swing_ctrl.v|E:\FPGA_project\total_project\src\str_rom.v|E:\FPGA_project\total_project\src\state_observer.v|E:\FPGA_project\total_project\src\st7789_spi.v|E:\FPGA_project\total_project\src\ref_gen.v|E:\FPGA_project\total_project\src\pos_interp.v|E:\FPGA_project\total_project\src\param_rom.v|E:\FPGA_project\total_project\src\param_link.v|E:\FPGA_project\total_project\src\mon_conv.v|E:\FPGA_project\total_project\src\mode_fsm.v|E:\FPGA_project\total_project\src\menu_frame.v|E:\FPGA_project\total_project\src\lqr_controller.v|E:\FPGA_project\total_project\src\lcd_init.v|E:\FPGA_project\total_project\src\key_debounce.v|E:\FPGA_project\total_project\src\font_cn.v|E:\FPGA_project\total_project\src\font_ascii.v|E:\FPGA_project\total_project\src\encoder_decoder.v|E:\FPGA_project\total_project\src\arm_target.v|E:\FPGA_project\total_project\src\ads1120.v|
+R6
+!i113 0
+R7
+R8
+vencoder_decoder
+R1
+!i10b 1
+!s100 RJz_UN2GIJ1`7_87SUaBZ1
+IW:eO_V2I[m7>`NQ]hX@2_0
+R2
+R0
+R3
+8E:\FPGA_project\total_project\src\encoder_decoder.v
+FE:\FPGA_project\total_project\src\encoder_decoder.v
+L0 23
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vfont_ascii
+R1
+!i10b 1
+!s100 4Wc:F;IQE[h>0U?S:@NNQ1
+IO4h8ROnYdfh[SRI::Qhfh0
+R2
+R0
+Z11 w1793460465
+8E:\FPGA_project\total_project\src\font_ascii.v
+FE:\FPGA_project\total_project\src\font_ascii.v
+L0 4
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vfont_cn
+R1
+!i10b 1
+!s100 V83F3[f>`<e2SigF0VL331
+ICgk60WkB8N`=SXS<3zZ[J2
+R2
+R0
+R11
+8E:\FPGA_project\total_project\src\font_cn.v
+FE:\FPGA_project\total_project\src\font_cn.v
+L0 4
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vkey_debounce
+R1
+!i10b 1
+!s100 2Y[17i3BBED9n7ij4moc<3
+I<?]4XA9F>gKo5Z9ZD]T:d2
+R2
+R0
+w1793279603
+8E:\FPGA_project\total_project\src\key_debounce.v
+FE:\FPGA_project\total_project\src\key_debounce.v
+Z12 L0 13
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vlcd_init
+R1
+!i10b 1
+!s100 P^Wk2dba8`XKNIQ72d;L63
+Ia0oQDo8^dS1NK:<h@Jahm2
+R2
+R0
+w1793335278
+8E:\FPGA_project\total_project\src\lcd_init.v
+FE:\FPGA_project\total_project\src\lcd_init.v
+Z13 L0 10
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vlqr_controller
+R1
+!i10b 1
+!s100 50>?VbeYOTY@=8CVc<gmd1
+IfBk@XY9K6YAR@:lWX67Lm2
+R2
+R0
+w1793594786
+8E:\FPGA_project\total_project\src\lqr_controller.v
+FE:\FPGA_project\total_project\src\lqr_controller.v
+L0 38
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vmenu_frame
+R1
+!i10b 1
+!s100 [S^Rcoz`nFeDojP3]mR360
+IK@=khhc4@:Nb>XG20<G1_1
+R2
+R0
+Z14 w1793604621
+8E:\FPGA_project\total_project\src\menu_frame.v
+FE:\FPGA_project\total_project\src\menu_frame.v
+Z15 L0 14
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vmode_fsm
+R1
+!i10b 1
+!s100 6C7cMEToZcRjQUTXli11h0
+I@_cE6>X?^M:G?U8`J[UQ62
+R2
+R0
+w1793537405
+8E:\FPGA_project\total_project\src\mode_fsm.v
+FE:\FPGA_project\total_project\src\mode_fsm.v
+L0 18
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vmon_conv
+R1
+!i10b 1
+!s100 RC]XOzP5c^jJS[KE0oK>c3
+IHPH;^5]Z9ac:dB4nNQ5^O2
+R2
+R0
+w1793356374
+8E:\FPGA_project\total_project\src\mon_conv.v
+FE:\FPGA_project\total_project\src\mon_conv.v
+R13
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vparam_link
+R1
+!i10b 1
+!s100 W9CJSETPDWik<4a:]M:Tg2
+I]<0?`deijzhnko4jnFWCA2
+R2
+R0
+w1793598839
+8E:\FPGA_project\total_project\src\param_link.v
+FE:\FPGA_project\total_project\src\param_link.v
+L0 19
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vparam_rom
+R1
+!i10b 1
+!s100 YBE`9k[[BX5SIiGMT;5>G2
+IWmff8Z?>TWHoC7PZ5]3D53
+R2
+R0
+R14
+8E:\FPGA_project\total_project\src\param_rom.v
+FE:\FPGA_project\total_project\src\param_rom.v
+L0 9
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vpos_interp
+R1
+!i10b 1
+!s100 IAGh79Lej4EULHP<GTz_`2
+IjXSG[K_D5j=3HiRZZDo2T0
+R2
+R0
+R3
+8E:\FPGA_project\total_project\src\pos_interp.v
+FE:\FPGA_project\total_project\src\pos_interp.v
+L0 43
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vref_gen
+R1
+!i10b 1
+!s100 bDH=:?RL4;5g3OLYz4c;I3
+I?P@I?czTo4<B4dThWKe^<1
+R2
+R0
+R9
+8E:\FPGA_project\total_project\src\ref_gen.v
+FE:\FPGA_project\total_project\src\ref_gen.v
+R15
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vst7789_spi
+R1
+!i10b 1
+!s100 :E@OZFfX^<@S?8lGiha`20
+IL`c<l;3kDf`VPH]0=YbfE0
+R2
+R0
+w1793289191
+8E:\FPGA_project\total_project\src\st7789_spi.v
+FE:\FPGA_project\total_project\src\st7789_spi.v
+R13
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vstate_observer
+R1
+!i10b 1
+!s100 n6BYdBOGC25fGH2@F24060
+IDNNnS=NGISL[l5TLjb_`<1
+R2
+R0
+R3
+8E:\FPGA_project\total_project\src\state_observer.v
+FE:\FPGA_project\total_project\src\state_observer.v
+L0 40
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vstr_rom
+R1
+!i10b 1
+!s100 ]d^jzJ70_@Wf][MW1]o9o1
+IYGQiNGP07EAWDR0OIQYoQ3
+R2
+R0
+w1793456864
+8E:\FPGA_project\total_project\src\str_rom.v
+FE:\FPGA_project\total_project\src\str_rom.v
+R12
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vswing_ctrl
+R1
+!i10b 1
+!s100 @KhhlcLj@2TUEnP^ZZU?M1
+INiO]B<1bJ4bDNoef2@b@93
+R2
+R0
+w1793540194
+8E:\FPGA_project\total_project\src\swing_ctrl.v
+FE:\FPGA_project\total_project\src\swing_ctrl.v
+L0 48
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vsys_reset
+R1
+!i10b 1
+!s100 2Mg9QOgAi[eCP^7fFoF]70
+I>eTDdn5AH[WmBSMb]STe43
+R2
+R0
+R3
+8E:\FPGA_project\total_project\src\sys_reset.v
+FE:\FPGA_project\total_project\src\sys_reset.v
+R13
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vtb6612_driver
+R1
+!i10b 1
+!s100 k0@m9<1n7A8^FRgMh0mHW1
+I8i<=EkFLBV>l8fmoZ5QP:2
+R2
+R0
+R3
+8E:\FPGA_project\total_project\src\tb6612_driver.v
+FE:\FPGA_project\total_project\src\tb6612_driver.v
+Z16 L0 24
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vtotal_top
+R1
+!i10b 1
+!s100 DK[c<l23j2fg64_D6PDoE2
+Ib;`:<i=Zm@HXT0[b4;@:`2
+R2
+R0
+w1793604661
+8E:\FPGA_project\total_project\src\total_top.v
+FE:\FPGA_project\total_project\src\total_top.v
+R16
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vuart_frame
+R1
+!i10b 1
+!s100 gNlE?a:<dN<Dc5?DDzE_G0
+If1d>@_5Hf_QgDGfzSfVC:3
+R2
+R0
+w1793517020
+8E:\FPGA_project\total_project\src\uart_frame.v
+FE:\FPGA_project\total_project\src\uart_frame.v
+L0 22
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vuart_rx
+R1
+!i10b 1
+!s100 HBXCURBdb=B_9BAh7:MME2
+IMB=lN;GUT9o6f0cW3m@3_1
+R2
+R0
+w1793516911
+8E:\FPGA_project\total_project\src\uart_rx.v
+FE:\FPGA_project\total_project\src\uart_rx.v
+L0 9
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vuart_tx_zzh
+R1
+!i10b 1
+!s100 :1Zk0UnYZc@YldSCiTb;[2
+I<U1XYU?5]K0WMBYK1Q49Z0
+R2
+R0
+w1793508097
+8E:\FPGA_project\total_project\src\uart_tx_zzh.v
+FE:\FPGA_project\total_project\src\uart_tx_zzh.v
+L0 9
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8
+vui_core
+R1
+!i10b 1
+!s100 108RhBiUf@B2I7^;WRK250
+I;l7gVCG=IQZd2^cG^aNM52
+R2
+R0
+w1793609014
+8E:\FPGA_project\total_project\src\ui_core.v
+FE:\FPGA_project\total_project\src\ui_core.v
+L0 11
+R4
+r1
+!s85 0
+31
+R5
+R10
+R6
+!i113 0
+R7
+R8

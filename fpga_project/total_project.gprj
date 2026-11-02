@@ -1,0 +1,37 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2A-18C" pn="GW2A-LV18PG256C8/I7">gw2a18c-011</Device>
+    <FileList>
+        <File path="src/sys_reset.v" type="file.verilog" enable="1"/>
+        <File path="src/key_debounce.v" type="file.verilog" enable="1"/>
+        <File path="src/ads1120.v" type="file.verilog" enable="1"/>
+        <File path="src/encoder_decoder.v" type="file.verilog" enable="1"/>
+        <File path="src/pos_interp.v" type="file.verilog" enable="1"/>
+        <File path="src/state_observer.v" type="file.verilog" enable="1"/>
+        <File path="src/mode_fsm.v" type="file.verilog" enable="1"/>
+        <File path="src/swing_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/lqr_controller.v" type="file.verilog" enable="1"/>
+        <File path="src/arm_target.v" type="file.verilog" enable="1"/>
+        <File path="src/ref_gen.v" type="file.verilog" enable="1"/>
+        <File path="src/tb6612_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/st7789_spi.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_init.v" type="file.verilog" enable="1"/>
+        <File path="src/font_cn.v" type="file.verilog" enable="1"/>
+        <File path="src/font_ascii.v" type="file.verilog" enable="1"/>
+        <File path="src/param_rom.v" type="file.verilog" enable="1"/>
+        <File path="src/str_rom.v" type="file.verilog" enable="1"/>
+        <File path="src/ui_core.v" type="file.verilog" enable="1"/>
+        <File path="src/menu_frame.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_tx_8n1.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/param_link.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_frame.v" type="file.verilog" enable="1"/>
+        <File path="src/mon_conv.v" type="file.verilog" enable="1"/>
+        <File path="src/total_top.v" type="file.verilog" enable="1"/>
+        <File path="constr/total_project.cst" type="file.cst" enable="1"/>
+        <File path="constr/total_project.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
